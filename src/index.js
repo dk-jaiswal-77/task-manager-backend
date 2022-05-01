@@ -23,10 +23,12 @@ app.use(express.json());
 
 // importing controllers
 const userController = require("./controllers/user.controller");
+const taskController = require("./controllers/task.controller");
 
 
 // redirecting to respective controller
 app.use("/users", userController);
+app.use("/tasks", taskController);
 
 
 
