@@ -75,7 +75,7 @@ router.post("/login", async(req, res) => {
         };
         // token = header.payload.signature
         const token = jwt.sign(payload, process.env.SECRET_KEY);
-        res.json({status : true, token});
+        res.json({status : true, token, user : payload});
 
     }catch(error){
         console.log(error);
