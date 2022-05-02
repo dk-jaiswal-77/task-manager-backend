@@ -29,6 +29,16 @@ router.get("/:userId", async (req, res) => {
     }
 })
 
+// patch // updating specified task /:taskId
+router.patch("/:taskId", async (req, res) => {
+    try{
+        await Task.findByIdAndUpdate(req.params.taskId, req.body).lean().exec();
+        res.json({status : true});
+    }catch(error){
+        console.log(error);
+    }
+})
+
 
 
 // exporting router
