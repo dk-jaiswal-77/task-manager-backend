@@ -19,6 +19,15 @@ router.post("/", async(req, res) => {
     }
 })
 
+// get // getting tasks of specified user /:userId
+router.get("/:userId", async (req, res) => {
+    try{
+        const tasks = await Task.find({userId : req.params.userId}).lean().exec();
+        res.json(tasks);
+    }catch(error){
+        console.log(error);
+    }
+})
 
 
 
