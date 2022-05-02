@@ -39,6 +39,15 @@ router.patch("/:taskId", async (req, res) => {
     }
 })
 
+router.delete("/:taskId", async (req, res) => {
+    try{
+        await Task.findByIdAndDelete(req.params.taskId);
+        res.json({status : true});
+    }catch(error){
+        console.log(error);
+    }
+})
+
 
 
 // exporting router
